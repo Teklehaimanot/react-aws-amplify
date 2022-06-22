@@ -12,6 +12,7 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [given_name, setGiven_name] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -31,13 +32,14 @@ const Signup = () => {
       navigate('/welcome');
     } catch (error) {
       console.log('error signing up:', error);
-      alert(error.message);
+      setError(error.message);
     }
   };
 
   return (
     <form className="signup" onSubmit={handleSubmit}>
-      <p>Signup to SG Account</p>
+      <h3>Signup to SG Account</h3>
+      <span style={{ color: 'red', marginTop: '1rem' }}>{error}</span>
       <input
         label="Given Name"
         type="text"
