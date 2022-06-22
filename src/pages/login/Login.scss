@@ -1,0 +1,28 @@
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: left;
+    width: 20%;
+    position: relative;
+    top: 20vh;
+    left: 20%;
+
+    input{
+        padding: .5rem 1rem ;
+        margin: .7rem 0;
+    }
+
+    .login-button{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+
+        button{
+            padding: 1rem 2rem;
+            margin: 0rem 3rem;
+        }
+
+    }
+
+}
