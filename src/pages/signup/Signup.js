@@ -4,6 +4,7 @@ import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import './Signup.scss';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -11,12 +12,13 @@ const Signup = () => {
   const [password, setPassword] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [given_name, setGiven_name] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const { user } = await Auth.signUp({
+      const user = await Auth.signUp({
         username,
         password,
         attributes: {
@@ -26,16 +28,12 @@ const Signup = () => {
         },
       });
       console.log(user);
+      navigate('/welcome');
     } catch (error) {
       console.log('error signing up:', error);
       alert(error.message);
     }
   };
-
-  //   const closeOpen = () => {
-  //     setEmail('');
-  //     setPassword('');
-  //   };
 
   return (
     <form className="signup" onSubmit={handleSubmit}>

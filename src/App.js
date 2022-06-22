@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/login/Login';
 import Signup from './pages/signup/Signup';
+import Welcome from './pages/welcome/Welcome';
 
 function App() {
   return (
@@ -9,8 +10,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Signup />} />
-          {/* <Route path="about" element={ <About/> } />
-        <Route path="contact" element={ <Contact/> } /> */}
+        </Routes>
+        <Routes>
+          <Route path="/welcome" element={<Welcome />} />
         </Routes>
       </BrowserRouter>
     </div>
