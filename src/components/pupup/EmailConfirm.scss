@@ -1,0 +1,45 @@
+.modal{
+    width: 100%;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 3;
+
+    &-popup{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        width: 30%;      
+        top:30%;
+        left:35%;
+        border: solid .05rem #444;
+        padding: 3rem;
+        background-color: #fff;
+        border-radius: .8rem;
+      
+
+        p{
+            color: green;
+        }
+        input{
+            padding: .7rem;
+            margin-bottom: 2rem;
+            margin-top: 1rem;
+        }
+        button{
+            width: 20%;
+            padding: .5rem;
+            background-color: green;
+            border-radius: .7rem;
+            border: solid .05rem green;
+            color: white;
+
+            &:hover{
+                background-color: blue;
+            }
+
+        }
+    }
+}

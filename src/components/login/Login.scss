@@ -12,15 +12,24 @@
         padding: .5rem 1rem ;
         margin: .7rem 0;
     }
-
+ 
     .login-button{
         display: flex;
         justify-content: space-between;
-        margin-top: 1rem;
+        margin-top: 2rem;
+        align-items: center;
 
         button{
-            padding: 1rem 2rem;
-            margin: 0rem 3rem;
+            padding: .5rem .9rem;
+            background-color: green;
+            color: white;
+            border: solid .04rem green;
+            border-radius: .5rem;
+
+            &:hover{
+                background-color: blue;
+                border: solid .04rem green;
+            }
         }
 
     }

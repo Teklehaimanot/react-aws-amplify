@@ -29,7 +29,7 @@ const Signup = () => {
         },
       });
       console.log(user);
-      navigate('/welcome');
+      navigate('/confirmation')
     } catch (error) {
       console.log('error signing up:', error);
       setError(error.message);
@@ -83,7 +83,7 @@ const Signup = () => {
       <div className="signup-button">
         <div>
           <span>have an account? </span>
-          <Link to="/login"> Login</Link>
+          <Link to="/">Login</Link>
         </div>
         <button type="submit">Signup</button>
       </div>

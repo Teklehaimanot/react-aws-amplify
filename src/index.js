@@ -4,6 +4,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Amplify from 'aws-amplify';
 import config from "./config";
+import UserProvider from './context/UserProvider';
 
 Amplify.configure({
   Auth: {
@@ -16,9 +17,12 @@ Amplify.configure({
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <UserProvider>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </UserProvider>
+
 );
 
 // If you want to start measuring performance in your app, pass a function
