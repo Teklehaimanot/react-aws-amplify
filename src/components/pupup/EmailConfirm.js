@@ -23,7 +23,7 @@ const EmailConfirm = () => {
   async function confirmSignUp() {
     try {
       await Auth.confirmSignUp(username, code);
-      navigate('/');
+      navigate('/welcome');
     } catch (error) {
       console.log('error confirming sign up', error);
       setError(error.message);
