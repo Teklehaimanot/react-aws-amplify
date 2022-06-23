@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Auth } from 'aws-amplify';
 import './EmailConfirm.scss';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const EmailConfirm = () => {
   const [code, setCode] = useState('');
@@ -12,9 +12,11 @@ const EmailConfirm = () => {
   async function resendConfirmationCode() {
     try {
       await Auth.resendSignUp(username);
+      alert('code resent succesfully');
       console.log('code resent successfully');
     } catch (err) {
       console.log('error resending code: ', err);
+      setError(err.message);
     }
   }
 
