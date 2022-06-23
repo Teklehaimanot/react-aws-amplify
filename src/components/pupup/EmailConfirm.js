@@ -50,8 +50,18 @@ const EmailConfirm = () => {
           onChange={(e) => setCode(e.target.value)}
         />
         <button onClick={confirmSignUp}>send</button>
-        <div>
-          <button onClick={resendConfirmationCode}>resend</button>
+        <div style={{ marginTop: '2rem' }}>
+          <span>
+            click{' '}
+            <span
+              style={{ textDecoration: 'underline', color: 'blue' }}
+              onClick={resendConfirmationCode}
+            >
+              {' '}
+              this{' '}
+            </span>
+            for resend code
+          </span>
         </div>
       </div>
     </div>
