@@ -1,27 +1,21 @@
-import React, { useState } from 'react';
-import { Auth } from 'aws-amplify';
-
+import React, { useEffect } from 'react';
+import { createMap } from 'maplibre-gl-js-amplify';
+import 'maplibre-gl/dist/maplibre-gl.css';
 const Welcome = () => {
-  const [userConfirmed, setUserConfirmed] = useState();
-  const username = 'teklehaimanotbelete@gmail.com';
-  const code = '357753';
-
-  async function confirmSignUp() {
-    try {
-      await Auth.confirmSignUp(username, code);
-      setUserConfirmed(true);
-    } catch (error) {
-      console.log('error confirming sign up', error);
+  useEffect(() => {
+    async function initializeMap() {
+      const map = await createMap({
+        container: 'map', // An HTML Element or HTML element ID to render the map in https://maplibre.org/maplibre-gl-js-docs/api/map/
+        center: [-123.1187, 49.2819], // [Longitude, Latitude]
+        zoom: 11,
+      });
     }
-  }
+
+    initializeMap();
+  }, []);
   return (
-    <div>
-      {userConfirmed && <div>user is conformed</div>}
-      <div>
-        <p>email confirmation</p>
-        <input type="text" />
-        <button onClick={confirmSignUp}>send</button>
-      </div>
+    <div className="container">
+      <div id="map"></div>
     </div>
   );
 };
