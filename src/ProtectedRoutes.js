@@ -5,6 +5,7 @@ import { userContext } from "./context/UserProvider";
 
 const ProtectedRoutes = () => {
     const { isAuthenticated } = useContext(userContext);
+    console.log(isAuthenticated)
     const location = useLocation();
     return isAuthenticated ? (
         <Outlet />

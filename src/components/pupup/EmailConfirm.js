@@ -9,6 +9,15 @@ const EmailConfirm = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  async function resendConfirmationCode() {
+    try {
+      await Auth.resendSignUp(username);
+      console.log('code resent successfully');
+    } catch (err) {
+      console.log('error resending code: ', err);
+    }
+  }
+
   async function confirmSignUp() {
     try {
       await Auth.confirmSignUp(username, code);
@@ -41,6 +50,9 @@ const EmailConfirm = () => {
           onChange={(e) => setCode(e.target.value)}
         />
         <button onClick={confirmSignUp}>send</button>
+        <div>
+          <button onClick={resendConfirmationCode}>resend</button>
+        </div>
       </div>
     </div>
   );
