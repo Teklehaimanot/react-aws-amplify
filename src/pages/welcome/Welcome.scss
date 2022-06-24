@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    justify-content: space-between;
+    margin: 10% 10%;
+
+    &-left{
+        width: 70%;
+        border: solid #888 .04rem;
+        box-shadow: #888;
+        margin: 1rem;
+        box-shadow: .04rem .04rem #888888;
+        border-radius: .5rem;
+    }
+    &-right{
+        width: 30%;
+        border: solid #888 .04rem;
+        margin: 1rem;
+        box-shadow: .04rem .04rem #888888;
+        border-radius: .5rem;
+    }
+    // width: 70%;
+}

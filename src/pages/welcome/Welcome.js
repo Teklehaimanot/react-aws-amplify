@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { createMap } from 'maplibre-gl-js-amplify';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import Header from '../../components/header/Header';
+import './Welcome.scss';
 const Welcome = () => {
   //   useEffect(() => {
   //     async function initializeMap() {
@@ -18,7 +19,13 @@ const Welcome = () => {
     // <div className="container">
     //   <div id="map">welcome</div>
     // </div>
-    <Header />
+    <>
+      <Header />
+      <div className="container">
+        <div className="container-left">tek</div>
+        <div className="container-right">teki</div>
+      </div>
+    </>
   );
 };
 
