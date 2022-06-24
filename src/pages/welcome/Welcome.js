@@ -1,48 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import Header from '../../components/header/Header';
+import axios from 'axios';
 import './Welcome.scss';
-
 import { Chart as ChartJS, registerables } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 ChartJS.register(...registerables);
 
 const Welcome = () => {
-  const [weather, setWeatheData] = useState([
-    {
-      name: 'Perciptitation Intensity',
-      value: 81,
-    },
-    {
-      name: 'Perciptitation Probablity',
-      value: 90,
-    },
-    {
-      name: 'Pressure',
-      value: 81,
-    },
-    {
-      name: 'Wind Speed',
-      value: 81,
-    },
-    {
-      name: 'Wind Direction',
-      value: 81,
-    },
-  ]);
+  const url = process.env.REACT_APP_BASE_URL;
+  const [weather, setWeatheData] = useState([]);
   const [sensorData, setSensorData] = useState({
-    labels: ['January', 'February', 'March', 'April', 'May'],
+    labels: [],
     datasets: [
       {
         label: 'Value',
         backgroundColor: 'rgba(75,192,192,1)',
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
-        data: [65, 59, 80, 81, 56],
+        data: [],
       },
     ],
   });
 
+  useEffect(() => {
+    const getData = async () => {
+      const res = await fetchData();
+      setSensorData(res.sensor);
+      setWeatheData(res.weather);
+    };
+
+    getData();
+  }, []);
+
+  const fetchData = async () => {
+    const result = await axios.get('http://localhost:5000/api/sensor');
+    return result.data;
+  };
   return (
     <>
       <Header />
@@ -68,7 +62,7 @@ const Welcome = () => {
           <h2>Weather</h2>
           <ul>
             {weather.map((item) => (
-              <li>
+              <li key={item.name}>
                 <span>{item.name} : </span>
                 <span>{item.value}</span>
               </li>
