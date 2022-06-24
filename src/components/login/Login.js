@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Auth } from 'aws-amplify';
 import { useNavigate } from 'react-router-dom';
+import { userContext } from '../../context/UserProvider';
 import { Link } from 'react-router-dom';
 import './Login.scss';
 
-const Login = ({ toggle, setToggle }) => {
+const Login = () => {
+  const { userHasAuthenticated } = useContext(userContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -13,7 +15,9 @@ const Login = ({ toggle, setToggle }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = await Auth.signIn(username, password);
+      await Auth.signIn(username, password);
+      userHasAuthenticated(true)
+      console.log('navigate')
       navigate('/welcome');
     } catch (error) {
       console.log('error signing in', error);

@@ -16,7 +16,7 @@ const UserProvider = (props) => {
     console.log('auth session');
     try {
       console.log('auth session 2');
-      const session = await Auth.currentSession();
+      await Auth.currentSession();
       console.log('auth session3');
       userHasAuthenticated(true);
       const user = await Auth.currentAuthenticatedUser();
@@ -31,7 +31,15 @@ const UserProvider = (props) => {
   };
 
   return (
-    <userContext.Provider value={{ user, isAuthenticating, isAuthenticated }}>
+    <userContext.Provider
+      value={{
+        user,
+        isAuthenticating,
+        setIsAuthenticating,
+        userHasAuthenticated,
+        isAuthenticated,
+      }}
+    >
       <div>{props.children}</div>
     </userContext.Provider>
   );
