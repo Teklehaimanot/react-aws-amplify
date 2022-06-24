@@ -4,19 +4,41 @@
     margin: 10% 10%;
 
     &-left{
-        width: 70%;
+        width: 75%;
         border: solid #888 .04rem;
         box-shadow: #888;
         margin: 1rem;
         box-shadow: .04rem .04rem #888888;
         border-radius: .5rem;
+
+        h2{
+            color: green;
+            margin: 1rem;
+        }
     }
     &-right{
-        width: 30%;
+        width: 20%;
         border: solid #888 .04rem;
         margin: 1rem;
         box-shadow: .04rem .04rem #888888;
         border-radius: .5rem;
+        display: flex;
+        flex-direction: column;
+        background-color: #65B0B4;
+        h2{
+            color: #fff;
+            margin: 1rem;
+        }
+        ul{
+            list-style:none;
+            margin:1rem .5rem;
+
+            li{
+                margin: 1rem;
+                color: white;
+                padding: .5rem 0rem;
+            }
+        }
     }
     // width: 70%;
 }
