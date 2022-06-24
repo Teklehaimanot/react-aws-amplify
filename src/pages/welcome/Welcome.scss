@@ -1,23 +1,40 @@
 .container{
     display: flex;
     justify-content: space-between;
-    margin: 10% 10%;
+    margin: 5% 5%;
 
     &-left{
-        width: 75%;
+        width: 80%;
         border: solid #888 .04rem;
         box-shadow: #888;
         margin: 1rem;
         box-shadow: .04rem .04rem #888888;
         border-radius: .5rem;
 
+        .chart-map{
+            display: flex;
+            justify-content: space-between;
+            
+
+            .chart-view{
+                width: 79%;
+            }
+            .map-view{
+                width: 20%;
+                border-left: #888 solid .06rem;
+                padding: 0 1rem;
+                
+            }
+
+        }
+
         h2{
-            color: green;
+            color: #65B0B4;
             margin: 1rem;
         }
     }
     &-right{
-        width: 20%;
+        width: 17%;
         border: solid #888 .04rem;
         margin: 1rem;
         box-shadow: .04rem .04rem #888888;
@@ -42,3 +59,8 @@
     }
     // width: 70%;
 }
+
+.leaflet-container {
+    width: 100%;
+    height: 30vh;
+  }

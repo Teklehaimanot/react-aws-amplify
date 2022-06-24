@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    background-color: green;
+    background-color: #035342;
     box-shadow: 0rem 0rem 0.5rem #888888;
     width: 100%;
     .header-left {
@@ -54,17 +54,18 @@
             color: #fff;
             text-align: center;
             text-decoration: none;
+            
        
         }
         button{
             float: left;
             margin: .5rem 2rem;
             color: #fff;
-            background-color: green;
+            background-color: #035342;
             border: none;
+            padding: .2rem 1rem;
             &:hover{
-                background-color: #65B0B4;
-                padding: .2rem 1rem;
+                background-color: #287706;
                 border-radius: .5rem;
             }
         }

@@ -5,6 +5,7 @@ import reportWebVitals from './reportWebVitals';
 import Amplify from 'aws-amplify';
 import config from "./config";
 import UserProvider from './context/UserProvider';
+// import 'leaflet/dist/leaflet.css';import 'leaflet/dist/leaflet.css';
 
 Amplify.configure({
   Auth: {
