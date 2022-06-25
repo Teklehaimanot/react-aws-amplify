@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import './Header.scss';
 import { Auth } from 'aws-amplify';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { userContext } from '../../context/UserProvider';
 
 const Header = () => {
+  const { user } = useContext(userContext);
   const navigate = useNavigate();
   const signOut = async () => {
     try {
@@ -23,7 +26,7 @@ const Header = () => {
         <Link to="/help">Help</Link>
       </ul>
       <div className="header-right">
-        <Link to="/profile">Teklehaimanot</Link>
+        <Link to="/profile">{user.attributes.given_name}</Link>
         <span></span>
         <button onClick={signOut}>Logout</button>
       </div>
