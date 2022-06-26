@@ -4,10 +4,10 @@ import './Header.scss';
 import { Auth } from 'aws-amplify';
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
-import { userContext } from '../../context/UserProvider';
+import UserProvider, { userContext } from '../../context/UserProvider';
 
 const Header = () => {
-  const { user } = useContext(userContext);
+  const { user, setUser, userHasAuthenticated } = useContext(userContext);
   const navigate = useNavigate();
   const signOut = async () => {
     try {
@@ -17,6 +17,7 @@ const Header = () => {
       console.log('error signing out: ', error);
     }
   };
+
   return (
     <header className="header">
       <ul className="header-left">

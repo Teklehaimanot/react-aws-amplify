@@ -10,9 +10,7 @@ import { useContext } from 'react';
 
 function App() {
   const { isAuthenticating, isAuthenticated, user } = useContext(userContext);
-  console.log(isAuthenticating);
-  console.log(isAuthenticated);
-  console.log(user);
+
   return (
     <div>
       {!isAuthenticating && (

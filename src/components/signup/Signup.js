@@ -28,10 +28,8 @@ const Signup = () => {
           given_name: given_name,
         },
       });
-      console.log(user);
       navigate('/confirmation')
     } catch (error) {
-      console.log('error signing up:', error);
       setError(error.message);
     }
   };

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Auth } from 'aws-amplify';
 import './EmailConfirm.scss';
 import { useNavigate } from 'react-router-dom';
+import { userContext } from '../../context/UserProvider';
 
 const EmailConfirm = () => {
+  const { userHasAuthenticated } = useContext(userContext);
   const [code, setCode] = useState('');
   const [username, setUsername] = useState('');
   const [error, setError] = useState('');
@@ -12,8 +14,7 @@ const EmailConfirm = () => {
   async function resendConfirmationCode() {
     try {
       await Auth.resendSignUp(username);
-      alert('code resent succesfully');
-      console.log('code resent successfully');
+      alert('code resent successfully');
     } catch (err) {
       console.log('error resending code: ', err);
       setError(err.message);
@@ -23,6 +24,7 @@ const EmailConfirm = () => {
   async function confirmSignUp() {
     try {
       await Auth.confirmSignUp(username, code);
+      userHasAuthenticated(true);
       navigate('/welcome');
     } catch (error) {
       console.log('error confirming sign up', error);
@@ -38,7 +40,7 @@ const EmailConfirm = () => {
         <input
           label="username"
           type="text"
-          placeholder="username"
+          placeholder="Email"
           required
           value={username}
           onChange={(e) => setUsername(e.target.value)}

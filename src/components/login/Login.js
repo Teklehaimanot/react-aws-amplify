@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
-  const { userHasAuthenticated } = useContext(userContext);
+  const { setUser } = useContext(userContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -16,11 +16,10 @@ const Login = () => {
     e.preventDefault();
     try {
       await Auth.signIn(username, password);
-      userHasAuthenticated(true)
-      console.log('navigate')
+      const user = await Auth.currentAuthenticatedUser();
+      setUser(user)
       navigate('/welcome');
     } catch (error) {
-      console.log('error signing in', error);
       setError(error.message);
     }
   };

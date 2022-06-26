@@ -13,13 +13,10 @@ const UserProvider = (props) => {
   }, []);
 
   const onLoad = async () => {
-    console.log('auth session');
     try {
-      console.log('auth session 2');
       await Auth.currentSession();
-      console.log('auth session3');
-      userHasAuthenticated(true);
       const user = await Auth.currentAuthenticatedUser();
+      userHasAuthenticated(true);
       setUser(user);
     } catch (e) {
       if (e !== 'No current user') {
@@ -29,11 +26,11 @@ const UserProvider = (props) => {
 
     setIsAuthenticating(false);
   };
-
   return (
     <userContext.Provider
       value={{
         user,
+        setUser,
         isAuthenticating,
         setIsAuthenticating,
         userHasAuthenticated,
