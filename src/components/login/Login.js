@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
-  const { setUser } = useContext(userContext);
+  const { setUser, userHasAuthenticated } = useContext(userContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -18,6 +18,7 @@ const Login = () => {
       await Auth.signIn(username, password);
       const user = await Auth.currentAuthenticatedUser();
       setUser(user)
+      userHasAuthenticated(true);
       navigate('/welcome');
     } catch (error) {
       setError(error.message);
@@ -31,7 +32,7 @@ const Login = () => {
       <input
         label="username"
         type="email"
-        placeholder="User Name"
+        placeholder="Email"
         required
         value={username}
         onChange={(e) => setUsername(e.target.value)}
