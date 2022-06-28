@@ -23,7 +23,7 @@ const Header = () => {
       <ul className="header-left">
         <Link to="/file">File</Link>
         <Link to="/view">View</Link>
-        <Link to="/vizhub">Maps</Link>
+        <Link to="/maps">Maps</Link>
         <Link to="/help">Help</Link>
       </ul>
       <div className="header-right">

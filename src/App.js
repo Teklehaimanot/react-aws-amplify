@@ -7,6 +7,11 @@ import Signup from './components/signup/Signup';
 import EmailConfirm from './components/pupup/EmailConfirm';
 import { userContext } from './context/UserProvider';
 import { useContext } from 'react';
+import Profile from './pages/Profile';
+import View from './pages/View';
+import Help from './pages/Help';
+import File from './pages/File';
+import Maps from './pages/Maps';
 
 function App() {
   const { isAuthenticating, isAuthenticated, user } = useContext(userContext);
@@ -27,6 +32,11 @@ function App() {
           <Routes>
             <Route element={<ProtectedRoutes />}>
               <Route path="/welcome" element={<Welcome />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/file" element={<File />} />
+              <Route path="/view" element={<View />} />
+              <Route path="/maps" element={<Maps />} />
+              <Route path="/help" element={<Help />} />
             </Route>
           </Routes>
         </BrowserRouter>
